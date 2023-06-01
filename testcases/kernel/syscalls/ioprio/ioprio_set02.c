@@ -23,7 +23,7 @@ static void run(void)
 	class = IOPRIO_CLASS_BE;
 
 	fail_in_loop = 0;
-	for (prio = 0; prio < IOPRIO_PRIO_NUM; prio++) {
+	for (prio = 0; prio < IOPRIO_NR_LEVELS; prio++) {
 		TEST(sys_ioprio_set(IOPRIO_WHO_PROCESS, 0,
 				    IOPRIO_PRIO_VALUE(class, prio)));
 		if (TST_RET == -1) {
@@ -39,7 +39,7 @@ static void run(void)
 	class = IOPRIO_CLASS_IDLE;
 
 	fail_in_loop = 0;
-	for (prio = 0; prio < IOPRIO_PRIO_NUM; prio++) {
+	for (prio = 0; prio < IOPRIO_NR_LEVELS; prio++) {
 		TEST(sys_ioprio_set(IOPRIO_WHO_PROCESS, 0,
 				    IOPRIO_PRIO_VALUE(class, prio)));
 		if (TST_RET == -1) {
